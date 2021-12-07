@@ -4233,6 +4233,7 @@ self.C3_JsPropNameTable = [
 	{MSDText: 0},
 	{SunLoader: 0},
 	{Cover: 0},
+	{AttrText: 0},
 	{BookElements: 0},
 	{Stars: 0},
 	{AbsLines: 0},
