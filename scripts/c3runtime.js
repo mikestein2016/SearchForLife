@@ -5347,6 +5347,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.LocalStorage.Acts.CheckItemExists,
 		C3.Behaviors.Fade.Acts.RestartFade,
+		C3.Plugins.System.Cnds.TriggerOnce,
+		C3.Plugins.scormc2.Acts.initialiseLMS,
+		C3.Plugins.scormc2.Acts.setLMSValue,
+		C3.Plugins.Touch.Cnds.OnTouchStart,
+		C3.Plugins.Browser.Cnds.IsFullscreen,
+		C3.Plugins.Browser.Acts.RequestFullScreen,
 		C3.Plugins.LocalStorage.Cnds.OnItemExists,
 		C3.Plugins.Text.Acts.SetVisible,
 		C3.Plugins.Sprite.Acts.SetVisible,
@@ -5406,7 +5412,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.CompareY,
 		C3.Plugins.Sprite.Acts.SetY,
 		C3.Plugins.Touch.Cnds.IsInTouch,
-		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.System.Cnds.Every,
 		C3.Plugins.System.Exps.viewportleft,
 		C3.Plugins.Sprite.Acts.SetAnim,
@@ -5446,17 +5451,16 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.System.Acts.SetGroupActive,
 		C3.Plugins.System.Cnds.OnSaveComplete,
-		C3.Plugins.Touch.Cnds.OnTouchStart,
 		C3.Plugins.Text.Cnds.IsOnLayer,
 		C3.Plugins.Sprite.Cnds.IsOnLayer,
-		C3.Plugins.scormc2.Acts.setLMSValue,
-		C3.Plugins.scormc2.Acts.doLMSCommit,
 		C3.Plugins.Arr.Acts.SetXY,
+		C3.Plugins.scormc2.Acts.doLMSCommit,
 		C3.Plugins.Arr.Cnds.CompareSize,
 		C3.Plugins.System.Acts.CreateObjectByName,
 		C3.Plugins.Browser.Acts.GoToURLWindow,
+		C3.Plugins.Browser.Acts.CancelFullScreen,
+		C3.Plugins.scormc2.Acts.doTerminate,
 		C3.Behaviors.Fade.Cnds.OnFadeOutEnd,
-		C3.Plugins.scormc2.Acts.initialiseLMS,
 		C3.Plugins.System.Cnds.OnLoadFinished
 	];
 };
@@ -5837,6 +5841,10 @@ self.C3_ExpressionFuncs = [
 		() => "Save",
 		() => "PBStatus",
 		() => "Tutorial",
+		() => "cmi.core.score.min",
+		() => "0",
+		() => "cmi.core.score.max",
+		() => "100",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const f1 = p._GetNode(1).GetBoundMethod();
@@ -6504,7 +6512,6 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => and("Score: ", v0.GetValue());
 		},
-		() => "cmi.core.score.raw",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject(5);
@@ -6549,6 +6556,7 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject(15);
 		},
+		() => "cmi.core.score.raw",
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
@@ -6707,11 +6715,7 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(0, 854);
-		},
-		() => "cmi.core.score.min",
-		() => "0",
-		() => "cmi.core.score.max",
-		() => "200"
+		}
 ];
 
 
